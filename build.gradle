@@ -3,8 +3,8 @@ plugins {
     id 'maven-publish'
 }
 
-group = 'xyz.snaker.glslc'
-version = '1.0'
+group = 'xyz.snaker'
+version = '1.0.1'
 
 repositories {
     mavenCentral()
@@ -23,4 +23,14 @@ tasks.register('srcJar', Jar) {
     build.dependsOn it
     from sourceSets.main.allSource
     archiveClassifier = 'sources'
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifact jar
+            artifact srcJar
+            artifact docJar
+        }
+    }
 }
