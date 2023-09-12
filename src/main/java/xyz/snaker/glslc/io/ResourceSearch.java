@@ -37,7 +37,7 @@ public class ResourceSearch
     private void walkFileTree(String fileName)
     {
         try {
-            Files.walkFileTree(path, new SimpleFileVisitor<>()
+            Files.walkFileTree(path, new SimpleFileVisitor<Path>()
             {
                 @Override
                 public FileVisitResult visitFile(Path file, BasicFileAttributes attrs)
