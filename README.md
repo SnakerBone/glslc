@@ -19,7 +19,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.github.SnakerBone:glslc:${glslcVersion}'
+    implementation "com.github.SnakerBone:glslc:${glslcVersion}"
 }
 ```
 
