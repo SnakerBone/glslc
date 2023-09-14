@@ -4,13 +4,17 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.function.Function;
 
 /**
  * Created by SnakerBone on 10/09/2023
  **/
 public class ResourceIO
 {
-    public static final String RESOURCES_DIRECTORY = "src/main/resources/";
+    public static final Function<String, String> CUSTOM_RESOURCE_DIR = path -> "src/" + path + "/resources/";
+
+    public static final String MAIN_RESOURCE_DIR = "src/main/resources/";
+    public static final String TEST_RESOURCE_DIR = "src/test/resources/";
 
     public static String getShader(String path)
     {
