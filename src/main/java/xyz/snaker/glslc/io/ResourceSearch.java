@@ -13,12 +13,12 @@ public class ResourceSearch
     private static final BiFunction<String, String, RuntimeException> INVALID_DIR = (dir, msg) -> new RuntimeException(String.format("Invalid Directory Path: '%s'. %s", dir, msg == null ? "" : msg));
 
     private final Path path;
-
     private final String directory;
     private final String fileName;
 
     public Path result;
     public boolean foundFile;
+    protected boolean absolute;
 
     public ResourceSearch(String pathToFile)
     {
@@ -51,16 +51,6 @@ public class ResourceSearch
         return path;
     }
 
-    @Override
-    public String toString()
-    {
-        walkFileTree(fileName);
-        if (foundFile) {
-            return result.toString();
-        }
-        throw new RuntimeException(String.format("Could not find file: %s", fileName));
-    }
-
     public void walkFileTree(String fileName)
     {
         try {
@@ -80,5 +70,40 @@ public class ResourceSearch
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public String toString()
+    {
+        walkFileTree(fileName);
+        if (foundFile) {
+            return absolute ? result.toAbsolutePath().toString() : result.toString();
+        }
+        throw new RuntimeException(String.format("Could not find file: %s", fileName));
+    }
+
+    public boolean isAbsolute()
+    {
+        return absolute;
+    }
+
+    public void setAbsolute(boolean absolute)
+    {
+        this.absolute = absolute;
+    }
+
+    public Path getPath()
+    {
+        return path;
+    }
+
+    public String getDirectory()
+    {
+        return directory;
+    }
+
+    public String getFileName()
+    {
+        return fileName;
     }
 }
