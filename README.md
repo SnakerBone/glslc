@@ -1,6 +1,6 @@
 # GLSLC
 
-GLSL shader version conversion tool
+GLSL shader version porting tool
 
 ### Versions
 
