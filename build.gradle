@@ -3,8 +3,8 @@ plugins {
     id 'maven-publish'
 }
 
-group = 'xyz.snaker'
-version = '1.0.3'
+group = 'xyz.snaker.jsnake.glslc'
+version = '1.0.4'
 
 repositories {
     mavenCentral()
@@ -13,24 +13,31 @@ repositories {
 dependencies {
 }
 
-tasks.register('docJar', Jar) {
-    build.dependsOn it
-    from javadoc
-    archiveClassifier = 'javadoc'
+java {
+    withSourcesJar()
+    withJavadocJar()
 }
 
-tasks.register('srcJar', Jar) {
-    build.dependsOn it
-    from sourceSets.main.allSource
-    archiveClassifier = 'sources'
+tasks.withType(GenerateModuleMetadata).configureEach {
+    enabled = true
 }
 
 publishing {
     publications {
-        mavenJava(MavenPublication) {
-            artifact jar
-            artifact srcJar
-            artifact docJar
+        register('pub', MavenPublication) {
+            from components.java
+            artifacts = [jar, sourcesJar, javadocJar]
+        }
+    }
+
+    repositories {
+        maven {
+            url 'https://repo.snaker.xyz/releases'
+
+            credentials {
+                username System.getenv('maven.username')
+                password System.getenv('maven.password')
+            }
         }
     }
 }

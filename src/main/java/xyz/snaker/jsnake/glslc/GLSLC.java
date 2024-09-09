@@ -1,4 +1,4 @@
-package xyz.snaker.glslc;
+package xyz.snaker.jsnake.glslc;
 
 /**
  * Created by SnakerBone on 7/09/2023

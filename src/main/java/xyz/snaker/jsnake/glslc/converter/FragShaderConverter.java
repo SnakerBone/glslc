@@ -1,7 +1,7 @@
-package xyz.snaker.glslc.converter;
+package xyz.snaker.jsnake.glslc.converter;
 
-import static xyz.snaker.glslc.converter.ShaderComponents.V150;
-import static xyz.snaker.glslc.converter.ShaderComponents.V150F;
+import static xyz.snaker.jsnake.glslc.converter.ShaderComponents.V150;
+import static xyz.snaker.jsnake.glslc.converter.ShaderComponents.V150F;
 
 /**
  * Created by SnakerBone on 11/09/2023

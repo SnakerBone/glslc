@@ -1,4 +1,4 @@
-package xyz.snaker.glslc.io;
+package xyz.snaker.jsnake.glslc.io;
 
 import java.nio.file.Paths;
 import java.util.ArrayList;

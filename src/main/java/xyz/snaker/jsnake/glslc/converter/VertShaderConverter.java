@@ -1,4 +1,4 @@
-package xyz.snaker.glslc.converter;
+package xyz.snaker.jsnake.glslc.converter;
 
 /**
  * Created by SnakerBone on 11/09/2023

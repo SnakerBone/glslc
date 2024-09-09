@@ -1,8 +1,8 @@
-package xyz.snaker.glslc.converter;
+package xyz.snaker.jsnake.glslc.converter;
 
 import java.util.function.Function;
 
-import xyz.snaker.glslc.io.ResourceIO;
+import xyz.snaker.jsnake.glslc.io.ResourceIO;
 
 /**
  * Created by SnakerBone on 11/09/2023
